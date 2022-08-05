@@ -8,9 +8,17 @@ class Effect:
         self.enemyDmg = enemyDmg
         self.selfDmg = selfDmg
 
+class Bleeding(Effect):
+    def __init__(self, procent):
+        super().__init__("Кровотечение")
+        self.procent = procent
+
+    def execute(self, target, player):
+        target.getDmg(target.hp * self.procent)
+
 class PureDamage(Effect):
-    def __init__(self, enemyDmg):
-        super().__init__("Чистый урон", enemyDmg)
+    def __init__(self, dmg):
+        super().__init__("Чистый урон", dmg)
     
     def execute(self, target, player):
         target.getDmg(self.enemyDmg)
