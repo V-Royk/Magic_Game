@@ -1,5 +1,7 @@
 from random import randint
 from .skills import fencing
+from .skills import fire
+from .skills import water
 
 
 class School:
@@ -15,3 +17,7 @@ class School:
         return self.skills[i]
 
 fencing = School("Фехтование", fencing)
+
+fire = School("Огонь", fire)
+
+water = School('Вода', water)
