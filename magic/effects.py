@@ -38,7 +38,6 @@ class Burn(Effect):
         dmg = randint(start, end)
         super().__init__("Горение", dmg, duration=3)
 
-
     def execute(self, target):
         target.getDmg(self.enemyDmg)
 
@@ -53,8 +52,34 @@ class MagicDamage(Effect):
 
 class Recovery(Effect):
     def __init__(self, healing):
-        super().__init__("Восстановление",  selfDmg=-healing)
+        super().__init__("Восстановление", 0, -healing)
+
+    def execute(self, target):
+        target.getDmg(self.enemyDmg)
+
+
+class Critical(Effect):
+    def __init__(self, dmg, start, end):
+        dmg = dmg + dmg * (randint(start, end)/100)
+        super().__init__("Критический урон", dmg)
         
 
     def execute(self, target):
-        target.hp(healing)
+        target.getDmg(self.enemyDmg)
+
+
+class Stun(Effect):
+    def __init__(self, dmg):
+        super().__init__("Оглушение", dmg, duration=1)
+
+
+    def execute(self, target):
+        target.getDmg(self.enemyDmg==0)
+
+class oOverload(Effect):
+    def __init__(self, dmg):
+        super().__init__("Перегрузка", dmg)
+        
+
+    def execute(self, target):
+        target.getDmg(self.enemyDmg * 2)

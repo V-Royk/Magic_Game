@@ -2,6 +2,8 @@ from random import randint
 from .skills import fencing
 from .skills import fire
 from .skills import water
+from .skills import martialArts
+# from .skills import earth 
 
 
 class School:
@@ -21,3 +23,9 @@ fencing = School("Фехтование", fencing)
 fire = School("Огонь", fire)
 
 water = School('Вода', water)
+
+martialArts = School('Боевые искусства', martialArts)
+
+# earth =  School('Земля', earth)
+
+# lightning = School('Молния', lightning)

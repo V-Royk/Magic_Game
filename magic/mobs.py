@@ -9,9 +9,12 @@ class Player:
         self.skills = skills
         print(f"{name} появился на поле боя!")
 
+    def __str__(self):
+        return f"{self.name}: {self.hp}, {self.skills}"
+
     def getDmg(self, dmg):
         if self.hp - dmg > 0:
-            print(f"{self.name} hp = {self.hp} - {dmg}/{self.maxHP}")
+            print(f"{self.name} hp = {self.hp - dmg}/{self.maxHP}")
             self.hp -= dmg
         else:
             self.hp = 0
